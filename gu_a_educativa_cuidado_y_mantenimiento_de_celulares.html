@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Guía educativa sobre el cuidado y mantenimiento de celulares en casa. Sitio educativo sin fines comerciales ni captación de datos.">
+<meta name="author" content="Lina Julieth Quemba Burgos">
+<meta name="robots" content="index, follow">
+<title>Lina Julieth Quemba Burgos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-primary: #050510;
+    --bg-secondary: #0a0a1a;
+    --bg-card: rgba(12, 14, 34, 0.78);
+    --bg-card-hover: rgba(18, 22, 48, 0.92);
+    --border-glow: rgba(0, 245, 255, 0.42);
+    --border-subtle: rgba(139, 92, 246, 0.18);
+    --accent-cyan: #00f5ff;
+    --accent-magenta: #ff007f;
+    --accent-purple: #8b5cf6;
+    --accent-lime: #39ff14;
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+    --text-muted: #94a3b8;
+    --gradient-1: linear-gradient(135deg, #00f5ff 0%, #ff007f 100%);
+    --gradient-2: linear-gradient(135deg, #8b5cf6 0%, #00f5ff 100%);
+    --gradient-3: linear-gradient(135deg, #00f5ff 0%, #39ff14 100%);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    background-color: var(--bg-primary);
+    background-image:
+        radial-gradient(circle at 15% 10%, rgba(0, 245, 255, 0.12) 0%, transparent 42%),
+        radial-gradient(circle at 85% 85%, rgba(255, 0, 127, 0.11) 0%, transparent 42%),
+        radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 60%);
+    background-attachment: fixed;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+        linear-gradient(rgba(0, 245, 255, 0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 0, 127, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+    pointer-events: none;
+    z-index: 0;
+    animation: gridDrift 60s linear infinite;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at 20% 30%, rgba(0, 245, 255, 0.18) 0%, transparent 10%),
+        radial-gradient(circle at 75% 60%, rgba(255, 0, 127, 0.15) 0%, transparent 10%),
+        radial-gradient(circle at 45% 80%, rgba(139, 92, 246, 0.14) 0%, transparent 8%);
+    filter: blur(45px);
+    pointer-events: none;
+    z-index: 0;
+    animation: orbFloat 20s ease-in-out infinite alternate;
+}
+
+@keyframes gridDrift {
+    0% { background-position: 0 0; }
+    100% { background-position: 50px 50px; }
+}
+
+@keyframes orbFloat {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(30px, -20px) scale(1.1); }
+    100% { transform: translate(-20px, 30px) scale(0.95); }
+}
+
+/* Línea de escaneo neón */
+.scan-line {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--accent-cyan), var(--accent-magenta), transparent);
+    box-shadow: 0 0 14px var(--accent-cyan), 0 0 24px var(--accent-magenta);
+    z-index: 9999;
+    pointer-events: none;
+    opacity: 0.65;
+    animation: scan 8s linear infinite;
+}
+
+@keyframes scan {
+    0% { transform: translateY(-2px); }
+    100% { transform: translateY(100vh); }
+}
+
+/* ===== HEADER ===== */
+header {
+    background: rgba(5, 5, 16, 0.88);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border-bottom: 1px solid var(--border-subtle);
+    box-shadow: 0 4px 25px rgba(0, 245, 255, 0.08);
+    padding: 1rem 2rem;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+}
+
+.logo-mark {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--gradient-1);
+    display: grid;
+    place-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    color: #050510;
+    font-weight: 800;
+    font-size: 0.95rem;
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.55), 0 0 35px rgba(255, 0, 127, 0.35);
+    position: relative;
+}
+
+.logo-mark::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 12px;
+    background: var(--gradient-1);
+    opacity: 0.55;
+    filter: blur(8px);
+    z-index: -1;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.logo-text small {
+    font-size: 0.7rem;
+    color: var(--accent-cyan);
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+}
+
+nav a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    padding: 0.55rem 1rem;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    cursor: pointer;
+    display: inline-block;
+    border: 1px solid transparent;
+}
+
+nav a:hover {
+    color: var(--accent-cyan);
+    background: rgba(0, 245, 255, 0.08);
+    border-color: var(--border-glow);
+    box-shadow: 0 0 12px rgba(0, 245, 255, 0.2);
+}
+
+nav a.active {
+    color: var(--accent-cyan);
+    background: rgba(0, 245, 255, 0.12);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 16px rgba(0, 245, 255, 0.28), inset 0 0 10px rgba(255, 0, 127, 0.15);
+}
+
+/* ===== HERO ===== */
+.hero {
+    position: relative;
+    padding: 6rem 2rem 5rem;
+    text-align: center;
+    overflow: hidden;
+}
+
+.hero-meta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    margin-top: 2.2rem;
+    padding: 0.6rem 1.2rem;
+    background: rgba(10, 10, 26, 0.65);
+    border: 1px solid rgba(0, 245, 255, 0.25);
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.08);
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.hero-meta span { display: inline-flex; align-items: center; gap: 0.4rem; }
+.hero-meta .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-lime); box-shadow: 0 0 10px var(--accent-lime); }
+
+.tech-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 2rem 0 0;
+}
+
+.stat-card {
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.07) 0%, rgba(255, 0, 127, 0.05) 100%);
+    border: 1px solid var(--border-subtle);
+    padding: 1.2rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    border-color: var(--accent-cyan);
+    box-shadow: 0 0 22px rgba(0, 245, 255, 0.25);
+    transform: translateY(-3px);
+}
+
+.stat-card .num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1.1;
+    margin-bottom: 0.3rem;
+}
+
+.stat-card .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center top, rgba(0, 245, 255, 0.16) 0%, rgba(255, 0, 127, 0.08) 40%, transparent 70%);
+    pointer-events: none;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 245, 255, 0.08);
+    border: 1px solid var(--border-glow);
+    box-shadow: 0 0 18px rgba(0, 245, 255, 0.18);
+    padding: 0.5rem 1.1rem;
+    border-radius: 100px;
+    font-size: 0.82rem;
+    margin-bottom: 1.8rem;
+    font-weight: 500;
+    color: var(--accent-cyan);
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.02em;
+}
+
+.badge::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-magenta);
+    box-shadow: 0 0 10px var(--accent-magenta);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(1.3); }
+}
+
+.hero h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.4rem;
+    color: var(--text-primary);
+    background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero h1 .accent {
+    background: var(--gradient-1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 18px rgba(0, 245, 255, 0.35));
+}
+
+.hero p {
+    font-size: 1.15rem;
+    max-width: 720px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* ===== MAIN ===== */
+main {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.page { display: none; animation: fadeUp 0.5s ease; }
+.page.active { display: block; }
+
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+    background: var(--bg-card);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 2.5rem;
+    margin-bottom: 1.8rem;
+    border-radius: 16px;
+    border: 1px solid var(--border-subtle);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--gradient-1);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+section:hover {
+    border-color: var(--border-glow);
+    box-shadow: 0 10px 35px -15px rgba(0, 245, 255, 0.25);
+}
+
+section:hover::before { opacity: 0.85; }
+
+h2 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--text-primary);
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+}
+
+h2::before {
+    content: '';
+    width: 4px;
+    height: 26px;
+    background: var(--gradient-1);
+    border-radius: 2px;
+    box-shadow: 0 0 12px var(--accent-cyan), 0 0 20px var(--accent-magenta);
+}
+
+h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    color: var(--accent-cyan);
+    font-size: 1.18rem;
+    font-weight: 600;
+    margin-top: 1.6rem;
+    margin-bottom: 0.7rem;
+    letter-spacing: -0.01em;
+}
+
+p {
+    margin-bottom: 1rem;
+    text-align: justify;
+    color: var(--text-secondary);
+}
+
+ul, ol { margin-left: 1.6rem; margin-bottom: 1rem; color: var(--text-secondary); }
+li { margin-bottom: 0.5rem; }
+
+strong { color: var(--text-primary); font-weight: 600; }
+em { color: var(--text-muted); }
+
+/* ===== ALERT BOXES ===== */
+.highlight-box, .info-box, .responsable-box, .warning-box {
+    padding: 1.3rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: 12px;
+    border: 1px solid;
+    backdrop-filter: blur(5px);
+}
+
+.highlight-box {
+    background: rgba(139, 92, 246, 0.1);
+    border-color: rgba(139, 92, 246, 0.35);
+    border-left: 3px solid var(--accent-purple);
+    box-shadow: 0 0 20px rgba(139, 92, 246, 0.12);
+}
+
+.highlight-box strong { color: #c4b5fd; }
+
+.info-box {
+    background: rgba(0, 245, 255, 0.07);
+    border-color: rgba(0, 245, 255, 0.28);
+    border-left: 3px solid var(--accent-cyan);
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.1);
+}
+
+.info-box strong { color: var(--accent-cyan); }
+
+.warning-box {
+    background: rgba(255, 0, 127, 0.08);
+    border-color: rgba(255, 0, 127, 0.35);
+    border-left: 3px solid var(--accent-magenta);
+    box-shadow: 0 0 20px rgba(255, 0, 127, 0.14);
+}
+
+.warning-box strong { color: #ff4da6; }
+
+.responsable-box {
+    background: rgba(57, 255, 20, 0.06);
+    border-color: rgba(57, 255, 20, 0.3);
+    border-left: 3px solid var(--accent-lime);
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.1);
+}
+
+.responsable-box strong { color: var(--accent-lime); }
+
+/* ===== GRIDS & CARDS ===== */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.4rem; margin: 2rem 0; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin: 2rem 0; }
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1.6rem; margin: 2rem 0; }
+
+.service-card {
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.06) 0%, rgba(255, 0, 127, 0.06) 100%);
+    border: 1px solid var(--border-subtle);
+    padding: 2rem 1.5rem;
+    border-radius: 14px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 8px 30px -8px rgba(0, 245, 255, 0.45);
+}
+
+.service-card .icon {
+    font-size: 2.2rem;
+    margin-bottom: 0.8rem;
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 14px;
+    background: rgba(0, 245, 255, 0.06);
+    border: 1px solid rgba(0, 245, 255, 0.25);
+    box-shadow: 0 0 15px rgba(0, 245, 255, 0.15);
+}
+
+.service-card h3 { margin-top: 0.8rem; color: var(--text-primary); }
+.service-card p { text-align: center; color: var(--text-muted); font-size: 0.95rem; }
+
+.type-card {
+    background: linear-gradient(180deg, rgba(0, 245, 255, 0.08) 0%, rgba(139, 92, 246, 0.04) 100%);
+    border: 1px solid var(--border-subtle);
+    padding: 1.4rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.type-card:hover {
+    border-color: var(--accent-magenta);
+    box-shadow: 0 8px 25px -8px rgba(255, 0, 127, 0.4);
+    transform: translateY(-3px);
+}
+
+.type-card .badge-letter {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    background: var(--gradient-1);
+    color: #050510;
+    border-radius: 50%;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-bottom: 0.7rem;
+    box-shadow: 0 0 18px rgba(0, 245, 255, 0.5), 0 0 28px rgba(255, 0, 127, 0.35);
+}
+
+.type-card h4 {
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 0.4rem;
+}
+
+.type-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0;
+}
+
+.grid-2 .card {
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.06) 0%, rgba(255, 0, 127, 0.06) 100%);
+    border: 1px solid var(--border-subtle);
+    padding: 2rem;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.grid-2 .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--accent-cyan);
+    box-shadow: 0 8px 25px -10px rgba(0, 245, 255, 0.35);
+}
+.grid-2 .card h3 { margin-top: 0; color: var(--text-primary); font-size: 1.3rem; }
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb {
+    background: rgba(0, 245, 255, 0.06);
+    border: 1px solid rgba(0, 245, 255, 0.22);
+    padding: 0.6rem 1.1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.breadcrumb a {
+    color: var(--accent-cyan);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.breadcrumb a:hover { text-decoration: underline; }
+
+/* ===== TIPS ===== */
+.tip {
+    background: linear-gradient(90deg, rgba(0, 245, 255, 0.07) 0%, transparent 100%);
+    border: 1px solid var(--border-subtle);
+    border-left: 3px solid var(--accent-cyan);
+    padding: 1rem 1.2rem;
+    margin: 0.7rem 0;
+    border-radius: 8px;
+    transition: all 0.25s ease;
+    color: var(--text-secondary);
+}
+
+.tip:hover {
+    background: linear-gradient(90deg, rgba(0, 245, 255, 0.12) 0%, rgba(255, 0, 127, 0.05) 100%);
+    transform: translateX(4px);
+    border-left-color: var(--accent-magenta);
+    box-shadow: 0 4px 18px rgba(0, 245, 255, 0.12);
+}
+
+.tip strong { color: var(--accent-cyan); }
+
+/* Protocolo de Limpieza en 4 Pasos */
+.pass-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.pass-step {
+    background: linear-gradient(180deg, rgba(255, 0, 127, 0.09) 0%, rgba(0, 245, 255, 0.05) 100%);
+    border: 1px solid var(--border-subtle);
+    padding: 1.5rem 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.pass-step:hover {
+    border-color: var(--accent-magenta);
+    box-shadow: 0 8px 25px -8px rgba(255, 0, 127, 0.45);
+    transform: translateY(-3px);
+}
+
+.pass-step .step-num {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent-magenta);
+    color: white;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 700;
+    font-size: 0.85rem;
+    line-height: 26px;
+    box-shadow: 0 0 12px var(--accent-magenta);
+}
+
+.pass-step .letter {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-cyan);
+    text-shadow: 0 0 12px rgba(0, 245, 255, 0.5);
+    margin-bottom: 0.4rem;
+}
+
+.pass-step h4 {
+    color: var(--text-primary);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 0.95rem;
+    margin-bottom: 0.4rem;
+}
+
+.pass-step p {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+    margin: 0;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background: rgba(4, 4, 12, 0.96);
+    backdrop-filter: blur(10px);
+    color: var(--text-secondary);
+    padding: 3.5rem 2rem 1.5rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-subtle);
+    position: relative;
+    z-index: 1;
+}
+
+footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 700px;
+    height: 1px;
+    background: var(--gradient-1);
+    box-shadow: 0 0 12px var(--accent-cyan);
+    opacity: 0.7;
+}
+
+.footer-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 2.5rem;
+}
+
+footer h4 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+}
+
+footer p, footer li {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    line-height: 1.65;
+}
+
+footer ul { list-style: none; margin-left: 0; }
+footer ul li { margin-bottom: 0.5rem; }
+
+footer a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.25s ease;
+}
+
+footer a:hover {
+    color: var(--accent-cyan);
+    text-shadow: 0 0 8px rgba(0, 245, 255, 0.4);
+}
+
+.responsable-footer {
+    background: linear-gradient(135deg, rgba(0, 245, 255, 0.06), rgba(255, 0, 127, 0.06));
+    border: 1px solid var(--border-glow);
+    box-shadow: 0 0 25px rgba(0, 245, 255, 0.1);
+    padding: 1.5rem;
+    border-radius: 14px;
+    position: relative;
+}
+
+.responsable-footer::before {
+    content: 'ID';
+    position: absolute;
+    top: -10px;
+    left: 1.5rem;
+    background: var(--bg-primary);
+    color: var(--accent-cyan);
+    padding: 0 0.6rem;
+    font-size: 0.7rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border: 1px solid rgba(0, 245, 255, 0.35);
+    border-radius: 4px;
+}
+
+.responsable-footer h4 { color: var(--accent-cyan); }
+.responsable-footer strong { color: var(--text-primary); }
+
+.footer-bottom {
+    max-width: 1280px;
+    margin: 3rem auto 0;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-subtle);
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.footer-bottom p { margin-bottom: 0.4rem; text-align: center; }
+
+/* ===== BOTÓN FLOTANTE DE WHATSAPP ===== */
+.whatsapp-float {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, #00f5ff 0%, #39ff14 100%);
+    color: #050510;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0 0 20px rgba(57, 255, 20, 0.55), 0 0 35px rgba(0, 245, 255, 0.35);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 28px rgba(57, 255, 20, 0.8), 0 0 45px rgba(0, 245, 255, 0.55);
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    fill: #050510;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .hero { padding: 4rem 1.5rem 3rem; }
+    .hero h1 { font-size: 1.8rem; }
+    .hero p { font-size: 1rem; }
+    .grid-2, .grid-3, .grid-4, .pass-grid, .tech-stats { grid-template-columns: 1fr 1fr; }
+    .footer-container { grid-template-columns: 1fr; }
+    nav ul { gap: 0.3rem; justify-content: center; }
+    nav a { font-size: 0.82rem; padding: 0.4rem 0.7rem; }
+    .header-container { flex-direction: column; }
+    section { padding: 1.6rem; }
+    h2 { font-size: 1.35rem; }
+    main { padding: 2rem 1.2rem 3rem; }
+    .logo { font-size: 1rem; }
+    .logo-mark { width: 34px; height: 34px; }
+    .scan-line { display: none; }
+    .whatsapp-float { bottom: 20px; right: 20px; width: 50px; height: 50px; }
+    .whatsapp-icon { width: 26px; height: 26px; }
+}
+
+/* Hover glow on logo mark */
+.logo-mark { animation: logoPulse 4s ease-in-out infinite; }
+
+@keyframes logoPulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(0, 245, 255, 0.55), 0 0 30px rgba(255, 0, 127, 0.3); }
+    50% { box-shadow: 0 0 32px rgba(0, 245, 255, 0.85), 0 0 50px rgba(255, 0, 127, 0.55); }
+}
+
+/* Cursor blink in hero */
+.cursor {
+    display: inline-block;
+    width: 3px;
+    height: 1em;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
+    margin-left: 4px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    50% { opacity: 0; }
+}
+
+::selection {
+    background: rgba(0, 245, 255, 0.3);
+    color: var(--text-primary);
+}
+
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: var(--bg-primary); }
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, rgba(0, 245, 255, 0.45), rgba(255, 0, 127, 0.45));
+    border-radius: 10px;
+    border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, rgba(0, 245, 255, 0.75), rgba(255, 0, 127, 0.75));
+}
+</style>
+</head>
+<body>
+
+<div class="scan-line"></div>
+
+<header>
+    <div class="header-container">
+        <div class="logo">
+            <div class="logo-mark">LQ</div>
+            <div class="logo-text">
+                <span>Lina Julieth Quemba Burgos</span>
+                <small>Guía Educativa</small>
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio" id="nav-inicio">Inicio</a></li>
+                <li><a href="#sobre-nosotros" id="nav-sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#mision-vision" id="nav-mision-vision">Misión y Visión</a></li>
+                <li><a href="#politicas-privacidad" id="nav-politicas-privacidad">Políticas y Privacidad</a></li>
+                <li><a href="#terminos-condiciones" id="nav-terminos-condiciones">Términos y Condiciones</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<!-- ====================== INICIO ====================== -->
+<div id="page-inicio" class="page active">
+    <div class="hero">
+        <div class="hero-content">
+            <span class="badge">Sitio educativo · Sin fines comerciales</span>
+            <h1>Cuidado y Mantenimiento de <span class="accent">Celulares en Casa</span><span class="cursor"></span></h1>
+            <p>Guía educativa con información práctica para conocer, conservar y optimizar correctamente su teléfono móvil, prolongando su vida útil y evitando fallas prematuras.</p>
+            <div class="hero-meta">
+                <span><span class="dot"></span> SISTEMA EDUCATIVO ACTIVO</span>
+                <span>v2.0</span>
+                <span>COL-2026</span>
+            </div>
+            <div class="tech-stats">
+                <div class="stat-card">
+                    <div class="num">04</div>
+                    <div class="label">Áreas Clave</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">20-80%</div>
+                    <div class="label">Carga Óptima</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">30</div>
+                    <div class="label">Días Limpieza Física</div>
+                </div>
+                <div class="stat-card">
+                    <div class="num">100%</div>
+                    <div class="label">Guía Gratuita</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <main>
+        <section>
+            <h2>Propósito de esta Guía</h2>
+            <p>Este sitio web ha sido creado con un <strong>propósito netamente educativo e informativo</strong>. Su objetivo principal es entregar a los usuarios en Colombia información clara y práctica sobre el cuidado, limpieza y mantenimiento preventivo de los teléfonos celulares en casa, contribuyendo a optimizar su funcionamiento y prolongar su vida útil.</p>
+
+            <div class="highlight-box">
+                <strong>¿Por qué se realiza esta guía educativa?</strong>
+                <p style="margin-top: 0.6rem;">En Colombia, una gran parte de las averías más frecuentes en los teléfonos móviles —como la degradación temprana de la batería, fallas en el puerto de carga o daños por humedad— se pueden evitar con hábitos diarios sencillos. Sin embargo, muchos usuarios desconocen cómo limpiar correctamente sus dispositivos o cómo gestionar los ciclos de carga. Esta guía busca cerrar esa brecha de conocimiento con información gratuita, práctica y verificable para cuidar su inversión tecnológica.</p>
+            </div>
+
+            <p><strong>Este sitio NO realiza:</strong></p>
+            <ul>
+                <li>Captación, recolección o almacenamiento de datos personales de los visitantes.</li>
+                <li>Ventas de equipos celulares, accesorios, repuestos ni servicios de reparación.</li>
+                <li>Procesos de afiliación, suscripción o registro de usuarios.</li>
+                <li>Transacciones financieras de ningún tipo.</li>
+                <li>Recomendación de marcas, operadores o talleres comerciales.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>¿Por qué Cuidar tu Celular?</h2>
+            <p>El teléfono celular es una herramienta indispensable para el trabajo, el estudio y la comunicación diaria. Aplicar hábitos básicos de mantenimiento preventivo evita gastos innecesarios en reparaciones y asegura un desempeño fluido y confiable en todo momento.</p>
+            <div class="grid-3">
+                <div class="service-card">
+                    <div class="icon">🔋</div>
+                    <h3>Vida Útil</h3>
+                    <p>Preservar la salud de la batería y los componentes físicos retrasa el desgaste prematuro del equipo.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">⚡</div>
+                    <h3>Rendimiento Óptimo</h3>
+                    <p>Una buena gestión del almacenamiento y actualizaciones mantiene el sistema rápido y estable.</p>
+                </div>
+                <div class="service-card">
+                    <div class="icon">🛡️</div>
+                    <h3>Seguridad Digital</h3>
+                    <p>Mantener el software al día y usar accesorios certificados protege su información y el hardware.</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Pilares del Mantenimiento Móvil</h2>
+            <p>El cuidado integral de un teléfono inteligente se divide en cuatro áreas fundamentales que todo usuario debe atender periódicamente.</p>
+            <div class="grid-4">
+                <div class="type-card">
+                    <div class="badge-letter">B</div>
+                    <h4>Batería</h4>
+                    <p>Ciclos de carga, temperatura y cargadores certificados.</p>
+                </div>
+                <div class="type-card">
+                    <div class="badge-letter">P</div>
+                    <h4>Pantalla</h4>
+                    <p>Limpieza con microfibra, vidrio templado y brillo adecuado.</p>
+                </div>
+                <div class="type-card">
+                    <div class="badge-letter">C</div>
+                    <h4>Conectores</h4>
+                    <p>Higiene del puerto de carga, altavoces y micrófonos.</p>
+                </div>
+                <div class="type-card">
+                    <div class="badge-letter">S</div>
+                    <h4>Software</h4>
+                    <p>Actualizaciones del sistema, caché y copias de seguridad.</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <strong>Recomendación general:</strong> combinar una protección física externa (funda con bordes elevados y protector de pantalla) con hábitos saludables de carga y limpieza mensual reduce en más de un 70% las fallas cotidianas en dispositivos móviles.
+            </div>
+        </section>
+
+        <section>
+            <h2>8 Consejos Clave para Cuidar y Mantener tu Celular</h2>
+            <div class="tip"><strong>1. Mantenga la carga entre el 20% y el 80%:</strong> evitar descargas completas al 0% y no dejar el equipo conectado toda la noche al 100% reduce el estrés químico de las baterías de iones de litio.</div>
+            <div class="tip"><strong>2. Evite el calor extremo y el uso intenso al cargar:</strong> jugar o ejecutar aplicaciones pesadas mientras el teléfono está conectado eleva su temperatura interna y degrada la batería rápidamente.</div>
+            <div class="tip"><strong>3. Limpie los puertos y altavoces con cuidado:</strong> retire la pelusa acumulada en el puerto USB-C o Lightning usando un palillo de madera o plástico con suavidad o aire comprimido; nunca introduzca agujas ni objetos metálicos.</div>
+            <div class="tip"><strong>4. Proteja la pantalla y el módulo de cámaras:</strong> instale un vidrio templado de buena calidad y utilice una funda que sobresalga ligeramente sobre los bordes de la pantalla y los lentes traseros.</div>
+            <div class="tip"><strong>5. Actualice el sistema operativo y las aplicaciones:</strong> las actualizaciones periódicas corrigen vulnerabilidades de seguridad, optimizan el consumo energético y mejoran la estabilidad general.</div>
+            <div class="tip"><strong>6. Gestione el almacenamiento interno:</strong> procure mantener al menos un 15% de memoria libre eliminando archivos duplicados, descargas antiguas y caché innecesaria para evitar lentitud.</div>
+            <div class="tip"><strong>7. Utilice cables y adaptadores certificados:</strong> los cargadores genéricos de baja calidad pueden generar picos de voltaje que dañan el circuito de carga y la placa principal.</div>
+            <div class="tip"><strong>8. Cuide el dispositivo ante la humedad y líquidos:</strong> incluso si su equipo cuenta con certificación IP, evite sumergirlo en agua salada o clorada y nunca conecte el cargador si detecta humedad en el puerto.</div>
+        </section>
+
+        <section>
+            <h2>Protocolo de Limpieza Segura en 4 Pasos</h2>
+            <p>Realizar una limpieza física adecuada cada 30 días elimina bacterias, grasa y partículas de polvo sin dañar los recubrimientos oleofóbicos de su teléfono.</p>
+            <div class="pass-grid">
+                <div class="pass-step">
+                    <span class="step-num">1</span>
+                    <div class="letter">A</div>
+                    <h4>Apagar</h4>
+                    <p>Desconecte cualquier cable y apague por completo el dispositivo antes de iniciar.</p>
+                </div>
+                <div class="pass-step">
+                    <span class="step-num">2</span>
+                    <div class="letter">D</div>
+                    <h4>Despejar</h4>
+                    <p>Retire la funda protectora para limpiar el polvo acumulado entre la carcasa y el equipo.</p>
+                </div>
+                <div class="pass-step">
+                    <span class="step-num">3</span>
+                    <div class="letter">M</div>
+                    <h4>Microfibra</h4>
+                    <p>Pase un paño de microfibra ligeramente humedecido con alcohol isopropílico al 70%.</p>
+                </div>
+                <div class="pass-step">
+                    <span class="step-num">4</span>
+                    <div class="letter">R</div>
+                    <h4>Revisar</h4>
+                    <p>Seque con la parte seca del paño y verifique que los puertos estén libres de pelusa.</p>
+                </div>
+            </div>
+            <div class="warning-box">
+                <strong>¡Importante!</strong> Nunca rocíe líquidos directamente sobre el teléfono ni utilice limpiavidrios, cloro, acetona o toallas de papel ásperas, ya que rayan la pantalla y degradan los sellos de protección contra humedad.
+            </div>
+        </section>
+
+        <section>
+            <h2>Recomendaciones Generales de Seguridad y Uso Diario</h2>
+            <ol>
+                <li>Reinicie su teléfono al menos una vez por semana para liberar memoria temporal y cerrar procesos bloqueados en segundo plano.</li>
+                <li>No deje el celular dentro de vehículos estacionados bajo el sol ni sobre superficies que irradien calor directo.</li>
+                <li>Evite guardar el teléfono en el mismo bolsillo junto a llaves, monedas u otros objetos metálicos que puedan rayar la pantalla o los lentes.</li>
+                <li>Realice copias de seguridad periódicas de sus fotos, contactos y documentos importantes en la nube o en un computador.</li>
+                <li>Active el bloqueo biométrico (huella o reconocimiento facial) junto con un PIN seguro y las funciones de localización remota.</li>
+                <li>Desactive conexiones innecesarias (Bluetooth, GPS o datos móviles) en zonas sin cobertura para evitar sobrecalentamiento por búsqueda continua de señal.</li>
+                <li>Ante señales de batería inflada, olor a quemado o fallas eléctricas graves, suspenda el uso inmediatamente y acuda a soporte técnico calificado.</li>
+            </ol>
+            <div class="info-box">
+                <strong>Importante:</strong> Esta guía constituye orientación general de carácter educativo. No reemplaza la asesoría técnica especializada ni el mantenimiento profesional certificado. Ante daños físicos internos o fallas complejas de hardware, acuda a un centro de servicio técnico autorizado.
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- ====================== SOBRE NOSOTROS ====================== -->
+<div id="page-sobre-nosotros" class="page">
+    <main>
+        <section>
+            <div class="breadcrumb"><a href="#inicio">~/inicio</a> &gt; sobre-nosotros</div>
+            <h2>Sobre Nosotros</h2>
+            <p>Somos una iniciativa educativa independiente en <strong>Colombia</strong>, creada con el firme propósito de poner a disposición de los ciudadanos información clara, práctica y verificable sobre el cuidado y mantenimiento de celulares en casa, fomentando hábitos responsables de uso y conservación tecnológica.</p>
+            <p>Esta guía surge de la observación de que muchos usuarios sufren daños prematuros en sus teléfonos móviles por desconocimiento de prácticas básicas de carga, limpieza y protección, generando gastos evitables y desechos electrónicos innecesarios.</p>
+
+            <h3>¿Quiénes somos?</h3>
+            <p>Detrás de este sitio se encuentra <strong>Lina Julieth Quemba Burgos</strong>, ciudadana colombiana quien de manera personal y voluntaria ha decidido divulgar contenidos educativos sobre el cuidado de dispositivos móviles, sin perseguir fines de lucro y sin ofrecer ningún tipo de servicio comercial.</p>
+
+            <h3>Nuestro compromiso</h3>
+            <ul>
+                <li>Ofrecer información de carácter educativo, con enfoque práctico y accesible para todos los usuarios.</li>
+                <li>Mantener un sitio totalmente gratuito, sin publicidad invasiva y sin captación de datos personales.</li>
+                <li>Promover una cultura de cuidado preventivo y aprovechamiento responsable de la tecnología.</li>
+                <li>Actualizar periódicamente la información para reflejar buenas prácticas vigentes.</li>
+                <li>Respetar plenamente la privacidad de los visitantes.</li>
+            </ul>
+
+            <div class="responsable-box">
+                <strong>Identificación del responsable del sitio:</strong>
+                <p style="margin-top: 0.6rem;">
+                    <strong>Nombre:</strong> Lina Julieth Quemba Burgos<br>
+                    <strong>NIT:</strong> 1.002.397.275-1<br>
+                    <strong>Dirección:</strong> Calle 100 #18sur -100, Colombia<br>
+                    <strong>Correo electrónico:</strong> anuxlep@gmail.com<br>
+                    <strong>Teléfono:</strong> 3052851896<br>
+                    <strong>Carácter:</strong> Anunciante y responsable del tratamiento de datos
+                </p>
+            </div>
+
+            <h3>Naturaleza del sitio</h3>
+            <p>Este sitio web tiene una naturaleza estrictamente educativa. No constituye una actividad mercantil ni representa a ninguna empresa, marca, fabricante de teléfonos móviles, operador de telecomunicaciones o taller de reparación. Toda la información publicada es de libre consulta y su único fin es contribuir al buen cuidado de los dispositivos celulares.</p>
+        </section>
+    </main>
+</div>
+
+<!-- ====================== MISIÓN Y VISIÓN ====================== -->
+<div id="page-mision-vision" class="page">
+    <main>
+        <section>
+            <div class="breadcrumb"><a href="#inicio">~/inicio</a> &gt; mision-vision</div>
+            <h2>Misión y Visión</h2>
+            <div class="grid-2">
+                <div class="card">
+                    <h3>Nuestra Misión</h3>
+                    <p>Difundir, de manera clara, accesible y gratuita, contenidos educativos que orienten a los usuarios en Colombia sobre el cuidado y mantenimiento preventivo de sus teléfonos celulares, promoviendo el ahorro, la seguridad digital y la prolongación de la vida útil de los dispositivos, sin recurrir a actividades comerciales ni a la captación de datos personales.</p>
+                </div>
+                <div class="card">
+                    <h3>Nuestra Visión</h3>
+                    <p>Ser para el año 2030 una guía educativa de referencia en línea para las personas que desean conservar en óptimo estado sus teléfonos móviles, reconocida por la sencillez, claridad y veracidad de sus consejos, así como por su firme compromiso con la educación tecnológica ciudadana.</p>
+                </div>
+            </div>
+
+            <h3>Nuestros Valores</h3>
+            <ul>
+                <li><strong>Educación:</strong> creemos en el poder del conocimiento práctico para evitar fallas prematuras en los dispositivos de uso diario.</li>
+                <li><strong>Prevención:</strong> promovemos hábitos cotidianos basados en el cuidado anticipado y no en la reparación correctiva.</li>
+                <li><strong>Transparencia:</strong> publicamos información clara, verificable y de utilidad práctica.</li>
+                <li><strong>Gratuidad:</strong> el acceso a este sitio es y será siempre completamente libre y sin costo.</li>
+                <li><strong>Privacidad:</strong> no recolectamos datos personales de nuestros visitantes.</li>
+                <li><strong>Independencia:</strong> no representamos intereses comerciales, fabricantes ni talleres de servicio técnico.</li>
+            </ul>
+
+            <div class="info-box">
+                <strong>Verificación:</strong> Esta misión y visión han sido publicadas con fines de verificación del propósito educativo del sitio, conforme a las exigencias de las plataformas publicitarias y de las normas colombianas aplicables.
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- ====================== POLÍTICAS Y PRIVACIDAD ====================== -->
+<div id="page-politicas-privacidad" class="page">
+    <main>
+        <section>
+            <div class="breadcrumb"><a href="#inicio">~/inicio</a> &gt; politicas-privacidad</div>
+            <h2>Políticas y Privacidad</h2>
+            <p><em>Última actualización: 8 de mayo de 2026</em></p>
+
+            <div class="responsable-box">
+                <strong>Responsable del tratamiento de los datos:</strong>
+                <p style="margin-top: 0.6rem;">
+                    <strong>Nombre:</strong> Lina Julieth Quemba Burgos<br>
+                    <strong>NIT:</strong> 1.002.397.275-1<br>
+                    <strong>Dirección:</strong> Calle 100 #18sur -100, Colombia<br>
+                    <strong>Correo electrónico de contacto:</strong> anuxlep@gmail.com<br>
+                    <strong>Teléfono:</strong> 3052851896
+                </p>
+            </div>
+
+            <h3>1. Objeto</h3>
+            <p>La presente política tiene por objeto informar a los usuarios y visitantes del sitio web sobre el tratamiento que se da a la información, en cumplimiento de la <strong>Ley 1581 de 2012</strong>, el <strong>Decreto 1377 de 2013</strong> y demás normas concordantes que regulan la protección de datos personales en Colombia.</p>
+
+            <h3>2. Naturaleza del sitio</h3>
+            <p>Este sitio es una <strong>guía educativa de libre consulta</strong>. No requiere registro, no solicita datos personales, no maneja formularios de contacto y no utiliza cookies de seguimiento publicitario. Por lo tanto, en condiciones normales de navegación, el sitio no recolecta, almacena ni trata datos personales de los visitantes.</p>
+
+            <h3>3. Datos que podrían ser recolectados</h3>
+            <p>De manera técnica y automática, el servidor que aloja este sitio podría registrar información estándar como la dirección IP, el tipo de navegador, la fecha y hora de acceso. Esta información se conserva únicamente con fines técnicos y estadísticos agregados.</p>
+
+            <h3>4. Finalidad del tratamiento</h3>
+            <p>Cualquier información técnica recolectada se utilizará exclusivamente para:</p>
+            <ul>
+                <li>Garantizar el funcionamiento adecuado del sitio.</li>
+                <li>Detectar y prevenir intentos de uso indebido o ataques informáticos.</li>
+                <li>Generar estadísticas agregadas y anónimas de visitas.</li>
+            </ul>
+
+            <h3>5. No transferencia de información</h3>
+            <p>El responsable no transfiere, vende, comparte ni cede información a terceros con fines comerciales. La información técnica del servidor podría ser entregada únicamente cuando lo exija una autoridad competente mediante orden legal.</p>
+
+            <h3>6. Derechos del titular</h3>
+            <p>De conformidad con la Ley 1581 de 2012, todo titular de datos personales tiene derecho a:</p>
+            <ul>
+                <li>Conocer, actualizar y rectificar sus datos personales.</li>
+                <li>Solicitar prueba de la autorización otorgada al responsable.</li>
+                <li>Ser informado sobre el uso que se ha dado a sus datos.</li>
+                <li>Presentar quejas ante la Superintendencia de Industria y Comercio.</li>
+                <li>Revocar la autorización y/o solicitar la supresión del dato.</li>
+                <li>Acceder en forma gratuita a sus datos personales.</li>
+            </ul>
+
+            <h3>7. Canal de atención</h3>
+            <p>Para ejercer cualquiera de los derechos anteriores, presentar consultas, reclamos o solicitudes relacionadas con la presente política, el titular podrá comunicarse con el responsable a través del correo electrónico: <strong>anuxlep@gmail.com</strong> o al teléfono <strong>3052851896</strong>.</p>
+
+            <h3>8. Uso de cookies</h3>
+            <p>Este sitio no utiliza cookies de rastreo, análisis comercial ni publicidad personalizada.</p>
+
+            <h3>9. Modificaciones</h3>
+            <p>El responsable se reserva el derecho de modificar la presente política en cualquier momento, en cuyo caso se publicará la nueva versión en este mismo sitio.</p>
+
+            <h3>10. Aceptación</h3>
+            <p>La navegación y permanencia en el presente sitio implica el conocimiento y la aceptación de la presente política de privacidad por parte del visitante.</p>
+
+            <div class="info-box">
+                <strong>Autoridad de control:</strong> Superintendencia de Industria y Comercio (SIC) de Colombia. Para presentar quejas relacionadas con el tratamiento de datos personales, puede consultar: <em>www.sic.gov.co</em>.
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- ====================== TÉRMINOS Y CONDICIONES ====================== -->
+<div id="page-terminos-condiciones" class="page">
+    <main>
+        <section>
+            <div class="breadcrumb"><a href="#inicio">~/inicio</a> &gt; terminos-condiciones</div>
+            <h2>Términos y Condiciones de Uso</h2>
+            <p><em>Última actualización: 8 de mayo de 2026</em></p>
+
+            <div class="responsable-box">
+                <strong>Responsable del sitio y del tratamiento de los datos:</strong>
+                <p style="margin-top: 0.6rem;">
+                    <strong>Nombre:</strong> Lina Julieth Quemba Burgos<br>
+                    <strong>NIT:</strong> 1.002.397.275-1<br>
+                    <strong>Dirección:</strong> Calle 100 #18sur -100, Colombia<br>
+                    <strong>Correo electrónico de contacto:</strong> anuxlep@gmail.com<br>
+                    <strong>Teléfono:</strong> 3052851896
+                </p>
+            </div>
+
+            <h3>1. Aceptación de los términos</h3>
+            <p>El acceso y uso del presente sitio web implican la aceptación plena, expresa y sin reservas de los presentes Términos y Condiciones por parte del usuario.</p>
+
+            <h3>2. Objeto del sitio</h3>
+            <p>Este sitio web tiene un fin <strong>exclusivamente educativo e informativo</strong>. Su contenido busca difundir información práctica sobre el cuidado y mantenimiento de celulares en casa. Bajo ninguna circunstancia constituye asesoría técnica especializada, servicio de reparación ni soporte oficial de fabricantes.</p>
+
+            <h3>3. Carácter no comercial</h3>
+            <p>El sitio no realiza actividades comerciales, no vende productos ni servicios, no recibe pagos, no recolecta datos personales con fines comerciales y no realiza captación de clientes ni potenciales consumidores.</p>
+
+            <h3>4. Propiedad intelectual</h3>
+            <p>Los contenidos, textos, diseños, imágenes y elementos gráficos del sitio son propiedad del responsable. Se permite la reproducción parcial con fines educativos, citando la fuente. Está prohibida la utilización comercial sin autorización previa y por escrito.</p>
+
+            <h3>5. Uso permitido</h3>
+            <p>El usuario se obliga a utilizar el sitio:</p>
+            <ul>
+                <li>Conforme a la ley colombiana, la moral y las buenas costumbres.</li>
+                <li>Sin alterar, dañar o intentar acceder no autorizadamente al sitio o a sus servidores.</li>
+                <li>Sin utilizar el contenido para fines ilícitos, fraudulentos o lesivos a terceros.</li>
+                <li>Sin reproducir el contenido con fines comerciales no autorizados.</li>
+            </ul>
+
+            <h3>6. Limitación de responsabilidad</h3>
+            <p>El responsable del sitio actúa de buena fe y se esfuerza por mantener la información actualizada y precisa. Sin embargo, <strong>no garantiza</strong> que la información esté libre de errores u omisiones. La información publicada constituye orientación general; ante fallas complejas de hardware o daños físicos graves, el usuario deberá acudir a un centro de servicio técnico certificado.</p>
+
+            <h3>7. Enlaces a terceros</h3>
+            <p>En caso de que el sitio incluya enlaces a sitios web de terceros, el responsable no se hace responsable del contenido, las políticas de privacidad ni las prácticas de dichos sitios externos.</p>
+
+            <h3>8. Disponibilidad del sitio</h3>
+            <p>El responsable no garantiza la disponibilidad ininterrumpida del sitio. Podrán existir interrupciones por mantenimiento, actualizaciones, fallas técnicas o causas de fuerza mayor.</p>
+
+            <h3>9. Modificaciones</h3>
+            <p>El responsable se reserva el derecho de modificar el contenido del sitio y los presentes Términos y Condiciones en cualquier momento, sin necesidad de aviso previo.</p>
+
+            <h3>10. Tratamiento de datos</h3>
+            <p>Para conocer el tratamiento de los datos, el usuario podrá consultar la <a href="#politicas-privacidad" style="color: var(--accent-cyan); text-decoration: underline;">Política de Privacidad</a>. El responsable del tratamiento de los datos personales es <strong>Lina Julieth Quemba Burgos</strong>, identificada anteriormente.</p>
+
+            <h3>11. Legislación aplicable y jurisdicción</h3>
+            <p>Los presentes Términos y Condiciones se rigen por las leyes de la <strong>República de Colombia</strong>. Cualquier controversia será resuelta ante los jueces competentes en Colombia, salvo que la ley disponga otra cosa.</p>
+
+            <h3>12. Contacto</h3>
+            <p>Para cualquier consulta relacionada con estos Términos y Condiciones, puede comunicarse al correo: <strong>anuxlep@gmail.com</strong> o al teléfono <strong>3052851896</strong>.</p>
+
+            <div class="info-box">
+                <strong>Constancia:</strong> Al continuar navegando en este sitio, el usuario manifiesta haber leído, entendido y aceptado los presentes Términos y Condiciones, así como la Política de Privacidad publicada.
+            </div>
+        </section>
+    </main>
+</div>
+
+<!-- ====================== FOOTER ====================== -->
+<footer>
+    <div class="footer-container">
+        <div class="responsable-footer">
+            <h4>Identificación del Anunciante y Responsable</h4>
+            <p>Esta página web es una guía educativa de carácter no comercial. El anunciante, responsable de la página web y responsable del tratamiento de los datos es:</p>
+            <p style="margin-top: 0.8rem;">
+                <strong>Lina Julieth Quemba Burgos</strong><br>
+                <strong>NIT:</strong> 1.002.397.275-1<br>
+                Calle 100 #18sur -100, Colombia<br>
+                Correo: anuxlep@gmail.com<br>
+                Teléfono: 3052851896
+            </p>
+        </div>
+        <div>
+            <h4>Navegación</h4>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#sobre-nosotros">Sobre Nosotros</a></li>
+                <li><a href="#mision-vision">Misión y Visión</a></li>
+            </ul>
+        </div>
+        <div>
+            <h4>Legal</h4>
+            <ul>
+                <li><a href="#politicas-privacidad">Políticas y Privacidad</a></li>
+                <li><a href="#terminos-condiciones">Términos y Condiciones</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2026 Lina Julieth Quemba Burgos · Todos los derechos reservados</p>
+        <p>Sitio educativo · Sin fines comerciales · Sin captación de datos personales</p>
+    </div>
+</footer>
+
+<!-- Botón Flotante de WhatsApp -->
+<a href="https://wa.me/573052851896" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Chat en WhatsApp">
+    <svg class="whatsapp-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+        <path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3 18.6-68.1-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.9-186.6 184.9zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/>
+    </svg>
+</a>
+
+<script>
+(function() {
+    var validPages = ['inicio', 'sobre-nosotros', 'mision-vision', 'politicas-privacidad', 'terminos-condiciones'];
+
+    var titles = {
+        'inicio': 'Lina Julieth Quemba Burgos',
+        'sobre-nosotros': 'Lina Julieth Quemba Burgos · Sobre Nosotros',
+        'mision-vision': 'Lina Julieth Quemba Burgos · Misión y Visión',
+        'politicas-privacidad': 'Lina Julieth Quemba Burgos · Políticas y Privacidad',
+        'terminos-condiciones': 'Lina Julieth Quemba Burgos · Términos y Condiciones'
+    };
+
+    function showPage(pageId) {
+        if (validPages.indexOf(pageId) === -1) pageId = 'inicio';
+
+        var pages = document.querySelectorAll('.page');
+        for (var i = 0; i < pages.length; i++) {
+            pages[i].classList.remove('active');
+        }
+        var navs = document.querySelectorAll('nav a');
+        for (var j = 0; j < navs.length; j++) {
+            navs[j].classList.remove('active');
+        }
+
+        var page = document.getElementById('page-' + pageId);
+        if (page) page.classList.add('active');
+
+        var navLink = document.getElementById('nav-' + pageId);
+        if (navLink) navLink.classList.add('active');
+
+        if (titles[pageId]) document.title = titles[pageId];
+    }
+
+    function loadFromHash() {
+        var hash = (window.location.hash || '').replace('#', '');
+        showPage(hash || 'inicio');
+        window.scrollTo(0, 0);
+    }
+
+    window.addEventListener('hashchange', loadFromHash);
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', loadFromHash);
+    } else {
+        loadFromHash();
+    }
+})();
+</script>
+
+</body>
+</html>
